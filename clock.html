@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #root{
+        margin:0 auto;
+        width: 800px;
+        height: 300px;
+        background-color: green;
+        text-align: center;
+        line-height: 300px;
+        font-size: 30px;
+        font-weight:900;    
+
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+    // 时间对象 new Date() 当前时间 格林尼治平时（英语：Greenwich Mean Time，GMT）
+    //Date.now() 返回自1970-1-1 00:00:00至今所经过的毫秒数。
+    //js中用 0 表示 1 月，用 1 表示 2 月……
+    var oDiv = document.getElementById('root');
+    function timeleft() {
+    var now = new Date();
+    var future = new Date(2019, 6, 21, 0, 0, 0);  
+    var lefts = parseInt((future - now) / 1000);//1秒=1000毫秒数
+    var day = parseInt(lefts / 86400);//一天86400秒
+    var hour = parseInt(lefts % 86400 / 3600);
+    var min = parseInt(lefts % 86400 % 3600 / 60);
+    var sec = lefts % 60;
+    str = '距离2019年7月21日0点还剩下' + day + '天' + hour + '时' + min + '分' + sec + '秒';
+    oDiv.innerHTML = str;
+    }   
+     setInterval(timeleft, 1000);
+    </script>
+</body>
+</html>
